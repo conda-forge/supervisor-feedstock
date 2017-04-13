@@ -9,11 +9,12 @@ source:
   git_rev: "{{ version }}"
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or py3k]
 
 requirements:
   build:
+    - gettext
     - python
     - setuptools
 
