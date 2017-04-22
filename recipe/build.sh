@@ -1,4 +1,4 @@
-$PYTHON setup.py install
+$PYTHON setup.py install --single-version-externally-managed --record record.txt
 
 mkdir -p $PREFIX/etc/supervisord/conf.d
 mkdir -p $PREFIX/etc/supervisord/startup

@@ -15,7 +15,8 @@ build:
 requirements:
   build:
     - python
-    - meld3 >=1
+    - setuptools
+
   run:
     - python
     - meld3 >=1
