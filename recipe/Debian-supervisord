@@ -23,7 +23,7 @@ DESC=supervisord
 test -x $DAEMON || exit 1
 
 LOGDIR=${PREFIX}/var/log/supervisord
-PIDFILE=${PREFIX}/var/run/$NAME/$NAME.pid
+PIDFILE=${PREFIX}/var/run/$NAME.pid
 DODTIME=5                   # Time to wait for the server to die, in seconds
                             # If this value is set too low you might not
                             # let some servers to die gracefully and

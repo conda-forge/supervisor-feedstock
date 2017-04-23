@@ -22,8 +22,8 @@ $PYTHON setup.py install --single-version-externally-managed --record record.txt
 
 mkdir_touch $PREFIX/etc/supervisord/conf.d
 mkdir_touch $PREFIX/etc/supervisord/startup
-mkdir_touch $PREFIX/var/log/supervisord
-mkdir_touch $PREFIX/var/run/supervisord
+mkdir_touch $PREFIX/var/log
+mkdir_touch $PREFIX/var/run
 
 render $RECIPE_DIR/supervisord.conf $PREFIX/etc/supervisord/
 ln -s $PREFIX/etc/supervisord/supervisord.conf $PREFIX/etc/supervisord.conf

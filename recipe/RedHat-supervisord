@@ -18,7 +18,7 @@
 RETVAL=0
 prog="supervisord"
 SUPERVISORD=${PREFIX}/bin/supervisord
-PID_FILE=${PREFIX}/var/run/supervisord/supervisord.pid
+PID_FILE=${PREFIX}/var/run/supervisord.pid
 CONFIG_FILE=${PREFIX}/etc/supervisord/supervisord.conf
 STOP_TIMEOUT=${STOP_TIMEOUT-180}
 
