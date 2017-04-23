@@ -30,6 +30,9 @@ test:
     - supervisor/tests/
   commands:
     - py.test supervisor/tests/
+    - supervisord
+    - supervisorctl status
+    - supervisorctl shutdown
 
 about:
   home: https://github.com/Supervisor/supervisor
