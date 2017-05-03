@@ -14,26 +14,26 @@
 
 . /lib/lsb/init-functions
 
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON=/usr/local/bin/supervisord
-SUPERVISORCTL=/usr/local/bin/supervisorctl
+PATH=${PREFIX}/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=${PREFIX}/bin/supervisord
+SUPERVISORCTL=${PREFIX}/bin/supervisorctl
 NAME=supervisord
 DESC=supervisord
 
 test -x $DAEMON || exit 1
 
-LOGDIR=/var/log/supervisord
-PIDFILE=/var/run/$NAME/$NAME.pid
+LOGDIR=${PREFIX}/var/log/supervisord
+PIDFILE=${PREFIX}/var/run/$NAME.pid
 DODTIME=5                   # Time to wait for the server to die, in seconds
                             # If this value is set too low you might not
                             # let some servers to die gracefully and
                             # 'restart' will not work
 
 # Include supervisord defaults if available
-if [ -f /etc/default/$NAME ] ; then
-    . /etc/default/$NAME
+if [ -f ${PREFIX}/etc/default/$NAME ] ; then
+    . ${PREFIX}/etc/default/$NAME
 fi
-DAEMON_OPTS="-c /etc/supervisord/supervisord.conf $DAEMON_OPTS"
+DAEMON_OPTS="-c ${PREFIX}/etc/supervisord/supervisord.conf $DAEMON_OPTS"
 
 set -e
 
@@ -87,7 +87,7 @@ case "$1" in
         echo "$NAME already running."
         exit 1
     fi
-    mkdir -p /var/run/$NAME
+    mkdir -p ${PREFIX}/var/run/$NAME
     echo -n "Starting $DESC: "
     start-stop-daemon --start --quiet --pidfile $PIDFILE \
         --startas $DAEMON -- $DAEMON_OPTS

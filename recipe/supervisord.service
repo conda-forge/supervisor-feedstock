@@ -4,9 +4,9 @@ After=rc-local.service
 
 [Service]
 Type=forking
-ExecStartPre=-/usr/bin/mkdir /var/run/supervisord
-ExecStart=/usr/local/bin/supervisord -c /etc/supervisord/supervisord.conf
-PIDFile=/var/run/supervisord/supervisord.pid
+ExecStartPre=-/usr/bin/mkdir ${PREFIX}/var/run/supervisord
+ExecStart=${PREFIX}/bin/supervisord -c ${PREFIX}/etc/supervisord/supervisord.conf
+PIDFile=${PREFIX}/var/run/supervisord/supervisord.pid
 SysVStartPriority=99
 
 [Install]
