@@ -1,12 +1,14 @@
 [Unit]
 Description=Process Monitoring and Control Daemon
 After=rc-local.service
+WorkingDirectory=${PREFIX}
+#User=conda
+#Group=conda
 
 [Service]
 Type=forking
-ExecStartPre=-/usr/bin/mkdir ${PREFIX}/var/run/supervisord
-ExecStart=${PREFIX}/bin/supervisord -c ${PREFIX}/etc/supervisord/supervisord.conf
-PIDFile=${PREFIX}/var/run/supervisord/supervisord.pid
+ExecStart=${PREFIX}/bin/supervisord -c ${PREFIX}/etc/supervisord.conf
+PIDFile=${PREFIX}/var/run/supervisord.pid
 SysVStartPriority=99
 
 [Install]
