@@ -33,11 +33,11 @@ test:
     - supervisor/tests/
   commands:
     - py.test supervisor/tests/
-    - sed -i 's@^serverurl=.*@serverurl=unix:///tmp/supervisord.sock@' ${CONDA_PREFIX}/etc/supervisord.conf
-    - sed -i 's@^file=.*@file=/tmp/supervisord.sock@' ${CONDA_PREFIX}/etc/supervisord.conf
-    - supervisord
-    - supervisorctl status
-    - supervisorctl shutdown
+    - supervisord -h
+    - supervisorctl -h
+    - echo_supervisord_conf -h
+  imports:
+    - supervisor
 
 about:
   home: http://supervisord.org/
