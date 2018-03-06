@@ -1,6 +1,6 @@
 {% set name = "supervisor" %}
-{% set version = "3.3.3" %}
-{% set sha256 = "96287ebfabf9a6923f74123b056c4da39c617fef367980f007cac02fba6527ad" %}
+{% set version = "3.3.4" %}
+{% set sha256 = "212201a3fd1d35c150ef0c35bf0676fd1a6c195fb60bf0f2147fe7dbd317e672" %}
 
 package:
   name: {{ name|lower }}
