@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or py3k]
 
 requirements:
@@ -23,6 +23,7 @@ requirements:
 
   run:
     - python
+    - distribute
     - meld3 >=1
 
 test:
