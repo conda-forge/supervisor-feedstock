@@ -30,6 +30,7 @@ test:
   requires:
     - pytest >=2.5.2
     - mock >=0.5.0
+    - sed  # [osx]
   source_files:
     - supervisor/tests/
   commands:
