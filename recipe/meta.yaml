@@ -1,6 +1,5 @@
 {% set name = "supervisor" %}
-{% set version = "4.0.0" %}
-{% set sha256 = "737376e7b6d27e3e79bc035d33df3a1e2eaa135d5b839b830ec9619aeef7acc4" %}
+{% set version = "4.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -9,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 3268709d7e3d4e728f88fd06a29215916e1e59ff5fad5fead9de856df6f98382
 
 build:
   number: 0
@@ -43,8 +42,14 @@ test:
 about:
   home: https://github.com/Supervisor/supervisor
   license: ZPL-variant
-  license_family: Other
+  license_family: BSD
+  license_file: LICENSES.txt
   summary: Supervisor process control system for UNIX
+  description: |
+    Supervisor is a client/server system that allows its users to monitor and
+    control a number of processes on UNIX-like operating systems.
+  doc_url: http://supervisord.org/
+  dev_url: https://github.com/Supervisor/supervisor
 
 extra:
   recipe-maintainers:
