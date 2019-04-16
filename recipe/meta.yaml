@@ -1,6 +1,5 @@
 {% set name = "supervisor" %}
 {% set version = "4.0.1" %}
-{% set sha256 = "3268709d7e3d4e728f88fd06a29215916e1e59ff5fad5fead9de856df6f98382" %}
 
 package:
   name: {{ name|lower }}
@@ -9,21 +8,20 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 3268709d7e3d4e728f88fd06a29215916e1e59ff5fad5fead9de856df6f98382
 
 build:
   number: 0
-  skip: true  # [win or py3k]
+  skip: true  # [win]
 
 requirements:
-  build:
+  host:
     - gettext
     - python
     - setuptools
 
   run:
     - python
-    - distribute
     - meld3 >=1
 
 test:
