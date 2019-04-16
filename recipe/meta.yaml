@@ -23,7 +23,6 @@ requirements:
 
   run:
     - python
-    - distribute
     - meld3 >=1
 
 test:
