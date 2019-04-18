@@ -9,6 +9,8 @@ Feedstock license: BSD 3-Clause
 
 Summary: Supervisor process control system for UNIX
 
+Supervisor is a client/server system that allows its users to monitor and
+control a number of processes on UNIX-like operating systems.
 
 
 Current build status
