@@ -1,13 +1,13 @@
 About supervisor
 ================
 
-Home: https://github.com/Supervisor/supervisor
+Home: http://supervisord.org/
 
-Package license: ZPL-variant
+Package license: BSD-derived
 
 Feedstock license: BSD 3-Clause
 
-Summary: Supervisor process control system for UNIX
+Summary: A Process Control System
 
 Supervisor is a client/server system that allows its users to monitor and
 control a number of processes on UNIX-like operating systems.
@@ -84,6 +84,7 @@ Current build status
       <img src="https://img.shields.io/badge/Windows-disabled-lightgrey.svg" alt="Windows disabled">
     </td>
   </tr>
+![ppc64le disabled](https://img.shields.io/badge/ppc64le-disabled-lightgrey.svg)
 </table>
 
 Current release info
