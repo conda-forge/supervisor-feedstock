@@ -11,7 +11,7 @@ source:
   sha256: 2dc86fe0476e945e61483d614ceb2cf4f93b95282eb243bdf792621994360383
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -22,7 +22,6 @@ requirements:
 
   run:
     - python
-    - meld3 >=1
 
 test:
   requires:
