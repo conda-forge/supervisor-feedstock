@@ -22,7 +22,6 @@ requirements:
 
   run:
     - python
-    - meld3 >=1
 
 test:
   requires:
