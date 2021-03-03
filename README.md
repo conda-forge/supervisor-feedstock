@@ -290,4 +290,5 @@ Feedstock Maintainers
 
 * [@kalefranz](https://github.com/kalefranz/)
 * [@sodre](https://github.com/sodre/)
+* [@xhochy](https://github.com/xhochy/)
 
