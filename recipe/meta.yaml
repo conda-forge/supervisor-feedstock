@@ -10,7 +10,7 @@ source:
   sha256: 40dc582ce1eec631c3df79420b187a6da276bbd68a4ec0a8f1f123ea616b97a2
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
 
 requirements:
@@ -41,9 +41,8 @@ test:
 
 about:
   home: http://supervisord.org/
-  license: BSD-derived
+  license: BSDBSD-3-Clause-Modification AND BSD-3-Clause AND MIT
   license_file: LICENSES.txt
-  license_family: BSD
   summary: A Process Control System
   description: |
     Supervisor is a client/server system that allows its users to monitor and
