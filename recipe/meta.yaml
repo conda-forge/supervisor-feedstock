@@ -41,9 +41,8 @@ test:
 
 about:
   home: http://supervisord.org/
-  license: BSD-derived
+  license: BSDBSD-3-Clause-Modification AND BSD-3-Clause AND MIT
   license_file: LICENSES.txt
-  license_family: BSD
   summary: A Process Control System
   description: |
     Supervisor is a client/server system that allows its users to monitor and
