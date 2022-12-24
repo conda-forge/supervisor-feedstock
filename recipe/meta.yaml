@@ -1,5 +1,5 @@
 {% set name = "supervisor" %}
-{% set version = "4.2.4" %}
+{% set version = "4.2.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 40dc582ce1eec631c3df79420b187a6da276bbd68a4ec0a8f1f123ea616b97a2
+  sha256: 34761bae1a23c58192281a5115fb07fbf22c9b0133c08166beffc70fed3ebc12
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
 
 requirements:
