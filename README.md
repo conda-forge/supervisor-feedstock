@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/supervisor-feed
 
 Home: http://supervisord.org/
 
-Package license: BSDBSD-3-Clause-Modification AND BSD-3-Clause AND MIT
+Package license: SD-3-Clause-Modification AND BSD-3-Clause AND PSF-2.0
 
 Summary: A Process Control System
 
