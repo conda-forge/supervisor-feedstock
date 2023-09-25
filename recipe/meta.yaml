@@ -41,7 +41,7 @@ test:
 
 about:
   home: http://supervisord.org/
-  license: BSDBSD-3-Clause-Modification AND BSD-3-Clause AND MIT
+  license: SD-3-Clause-Modification AND BSD-3-Clause AND PSF-2.0
   license_file: LICENSES.txt
   summary: A Process Control System
   description: |
