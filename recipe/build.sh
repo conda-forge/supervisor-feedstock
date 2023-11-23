@@ -19,6 +19,8 @@ function mkdir_touch()
 }
 
 $PYTHON setup.py install --single-version-externally-managed --record record.txt
+# Don't install the test suite.
+rm -r $SP_DIR/supervisor/tests
 
 mkdir_touch $PREFIX/etc/supervisord/conf.d
 mkdir_touch $PREFIX/etc/supervisord/startup

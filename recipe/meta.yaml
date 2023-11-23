@@ -32,7 +32,8 @@ test:
   source_files:
     - supervisor/tests/
   commands:
-    - py.test supervisor/tests/
+    - cp -r supervisor/tests $SP_DIR/supervisor
+    - py.test supervisor/tests
     - supervisord -h
     - supervisorctl -h
     - echo_supervisord_conf -h
