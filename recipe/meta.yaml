@@ -28,6 +28,7 @@ test:
   requires:
     - pytest >=2.5.2
     - mock >=0.5.0
+    - pip
   source_files:
     - supervisor/tests/
   commands:
@@ -35,6 +36,7 @@ test:
     - supervisord -h
     - supervisorctl -h
     - echo_supervisord_conf -h
+    - pip check
   imports:
     - supervisor
 
