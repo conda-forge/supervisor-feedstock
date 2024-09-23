@@ -1,0 +1,22 @@
+From b604a8f9b6260a88eed7db063e8f82594cc87b75 Mon Sep 17 00:00:00 2001
+From: "Uwe L. Korn" <uwe.korn@quantco.com>
+Date: Mon, 23 Sep 2024 20:59:56 +0200
+Subject: [PATCH 2/2] Ignore Python 3.13's __firstlineno__
+
+---
+ supervisor/tests/test_process.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/supervisor/tests/test_process.py b/supervisor/tests/test_process.py
+index d9370e2..01b2da0 100644
+--- a/supervisor/tests/test_process.py
++++ b/supervisor/tests/test_process.py
+@@ -39,7 +39,7 @@ class SubprocessTests(unittest.TestCase):
+         from supervisor.states import ProcessStates
+         from supervisor.process import getProcessStateDescription
+         for statename, code in ProcessStates.__dict__.items():
+-            if isinstance(code, int):
++            if isinstance(code, int) and statename != "__firstlineno__":
+                 self.assertEqual(getProcessStateDescription(code), statename)
+ 
+     def test_ctor(self):

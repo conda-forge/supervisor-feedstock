@@ -8,6 +8,9 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 34761bae1a23c58192281a5115fb07fbf22c9b0133c08166beffc70fed3ebc12
+  patches:
+    - 0001-Remove-unused-test_suite-that-now-causes-unittest-an.patch
+    - 0002-Ignore-Python-3.13-s-__firstlineno__.patch
 
 build:
   number: 3
