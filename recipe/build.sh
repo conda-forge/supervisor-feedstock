@@ -8,7 +8,8 @@ function render()
 
     mkdir -p $2
 
-    cat $src_file | envsubst '$PREFIX' > $dst_file
+    cp $src_file $dst_file
+    sed -i "s;\$PREFIX;$PREFIX;g" $dst_file
 }
 
 function mkdir_touch()
