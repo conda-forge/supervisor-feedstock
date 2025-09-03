@@ -43,7 +43,7 @@ tests:
         - mock >=0.5.0
         - pip
     script:
-      - cp -r supervisor/tests $SP_DIR/supervisor
+      - cp -r supervisor/tests $(python -c 'import site; print(site.getsitepackages()[0])')/supervisor
       - py.test supervisor/tests
       - supervisord -h
       - supervisorctl -h
