@@ -1,0 +1,68 @@
+schema_version: 1
+
+context:
+  name: supervisor
+  version: 4.3.0
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  sha256: 4a2bf149adf42997e1bb44b70c43b613275ec9852c3edacca86a9166b27e945e
+
+build:
+  number: 0
+  skip: win
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then: python
+    - if: build_platform != target_platform
+      then: cross-python_${{ target_platform }}
+    - sed
+  host:
+    - python
+    - setuptools
+  run:
+    - python
+    - setuptools
+
+tests:
+  - python:
+      imports:
+        - supervisor
+  - files:
+      source:
+        - supervisor/tests/
+    requirements:
+      run:
+        - pytest >=2.5.2
+        - mock >=0.5.0
+        - pip
+    script:
+      - cp -r supervisor/tests $(python -c 'import site; print(site.getsitepackages()[0])')/supervisor
+      - py.test supervisor/tests
+      - supervisord -h
+      - supervisorctl -h
+      - echo_supervisord_conf -h
+      - pip check
+
+about:
+  license: BSD-3-Clause-Modification AND BSD-3-Clause AND PSF-2.0
+  license_file: LICENSES.txt
+  summary: A Process Control System
+  description: |
+    Supervisor is a client/server system that allows its users to monitor and
+    control a number of processes on UNIX-like operating systems.
+  homepage: http://supervisord.org/
+  repository: https://github.com/Supervisor/supervisor
+  documentation: http://supervisord.org/
+
+extra:
+  recipe-maintainers:
+    - kalefranz
+    - sodre
+    - xhochy
