@@ -19,7 +19,7 @@ function mkdir_touch()
     touch $dir/.mkdir
 }
 
-$PYTHON setup.py install --single-version-externally-managed --record record.txt
+$PYTHON -m pip install --no-deps -vv .
 # Don't install the test suite.
 rm -r $SP_DIR/supervisor/tests
 

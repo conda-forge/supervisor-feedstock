@@ -14,7 +14,7 @@ source:
 
 build:
   number: 1
-  skip: win
+  noarch: python
   python:
     entry_points:
       - supervisord = supervisor.supervisord:main
@@ -24,32 +24,36 @@ build:
 
 requirements:
   build:
-    - if: build_platform != target_platform
-      then:
-        - python
-        - cross-python_${{ target_platform }}
     - sed
   host:
-    - python
+    - pip
+    - python ${{ python_min }}.*
     - setuptools
   run:
-    - python
+    - python >=${{ python_min }}
+    - __unix
 
 tests:
   - python:
       imports:
         - supervisor
+        - supervisor.supervisorctl
+        - supervisor.supervisord
       pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - 3.*
   - files:
       source:
         - supervisor/tests/
     requirements:
       run:
+        - python ${{ python_min }}.*
         - pytest >=2.5.2
         - mock >=0.5.0
     script:
       - cp -r supervisor/tests $(python -c 'import site; print(site.getsitepackages()[0])')/supervisor
-      - py.test supervisor/tests
+      - pytest supervisor/tests
       - supervisord -h
       - supervisorctl -h
       - echo_supervisord_conf -h
