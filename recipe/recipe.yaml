@@ -13,42 +13,50 @@ source:
   sha256: 4a2bf149adf42997e1bb44b70c43b613275ec9852c3edacca86a9166b27e945e
 
 build:
-  number: 0
-  skip: win
+  number: 1
+  noarch: python
+  python:
+    entry_points:
+      - supervisord = supervisor.supervisord:main
+      - supervisorctl = supervisor.supervisorctl:main
+      - echo_supervisord_conf = supervisor.confecho:main
+      - pidproxy = supervisor.pidproxy:main
 
 requirements:
   build:
-    - if: build_platform != target_platform
-      then: python
-    - if: build_platform != target_platform
-      then: cross-python_${{ target_platform }}
     - sed
   host:
-    - python
+    - pip
+    - python ${{ python_min }}.*
     - setuptools
   run:
-    - python
-    - setuptools
+    - python >=${{ python_min }}
+    - __unix
 
 tests:
   - python:
       imports:
         - supervisor
+        - supervisor.supervisorctl
+        - supervisor.supervisord
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - 3.*
   - files:
       source:
         - supervisor/tests/
     requirements:
       run:
+        - python ${{ python_min }}.*
         - pytest >=2.5.2
         - mock >=0.5.0
-        - pip
     script:
       - cp -r supervisor/tests $(python -c 'import site; print(site.getsitepackages()[0])')/supervisor
-      - py.test supervisor/tests
+      - pytest supervisor/tests
       - supervisord -h
       - supervisorctl -h
       - echo_supervisord_conf -h
-      - pip check
 
 about:
   license: BSD-3-Clause-Modification AND BSD-3-Clause AND PSF-2.0

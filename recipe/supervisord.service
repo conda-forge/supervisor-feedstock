@@ -7,7 +7,7 @@ WorkingDirectory=${PREFIX}
 
 [Service]
 Type=forking
-ExecStart=${PREFIX}/bin/supervisord -c ${PREFIX}/etc/supervisord.conf
+ExecStart=${PREFIX}/bin/supervisord -c ${PREFIX}/etc/supervisord/supervisord.conf
 PIDFile=${PREFIX}/var/run/supervisord.pid
 SysVStartPriority=99
 
