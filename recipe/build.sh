@@ -29,8 +29,6 @@ mkdir_touch $PREFIX/var/log
 mkdir_touch $PREFIX/var/run
 
 render $RECIPE_DIR/supervisord.conf $PREFIX/etc/supervisord/
-ln -s $PREFIX/etc/supervisord/supervisord.conf $PREFIX/etc/supervisord.conf
-
 
 mkdir -p $PREFIX/etc/rc.d/init.d/
 render $RECIPE_DIR/Debian-supervisord $PREFIX/etc/rc.d/init.d/
