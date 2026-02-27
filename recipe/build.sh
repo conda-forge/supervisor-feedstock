@@ -29,6 +29,10 @@ mkdir_touch $PREFIX/var/log
 mkdir_touch $PREFIX/var/run
 
 render $RECIPE_DIR/supervisord.conf $PREFIX/etc/supervisord/
+# Create a symlink in $PREFIX/etc so that supervisorctl can find the config file:
+# ../etc/supervisord.conf (Relative to the executable).
+# See https://supervisord.org/configuration.html
+ln -s $PREFIX/etc/supervisord/supervisord.conf $PREFIX/etc/supervisord.conf
 
 mkdir -p $PREFIX/etc/rc.d/init.d/
 render $RECIPE_DIR/Debian-supervisord $PREFIX/etc/rc.d/init.d/
